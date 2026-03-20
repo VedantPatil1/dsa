@@ -1,0 +1,27 @@
+# yaml-language-server: $schema=https://taskfile.dev/schema.json
+
+version: '3'
+
+tasks:
+  default:
+    desc: List available tasks
+    cmds:
+      - task --list
+    silent: true
+
+  install:
+    desc: Install dependencies with uv
+    cmds:
+      - uv sync
+
+  serve:
+    desc: Start local dev server with live reload
+    cmds:
+      - uv run zensical serve
+    silent: true
+
+  build:
+    desc: Build the documentation site
+    cmds:
+      - uv run zensical build --clean
+    silent: true
